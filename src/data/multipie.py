@@ -106,10 +106,8 @@ class MultiPIE(data.Dataset):
 
     def _set_filesystem(self, dir_data):
         self.apath = os.path.join(dir_data, self.name.split('_')[0])
-        self.dir_hr_frontal = os.path.join(self.apath, 'cropped/HR_frontal')
-        self.dir_lr_frontal = os.path.join(self.apath, 'cropped/LR_frontal')
-        self.dir_hr_pose = os.path.join(self.apath, 'cropped/HR_pose')
-        self.dir_lr_pose = os.path.join(self.apath, 'cropped/LR_frontal') #LR_pose
+        self.dir_hr_frontal = os.path.join(self.apath, 'cropped/frontal')
+        self.dir_hr_pose = os.path.join(self.apath, 'cropped/pose')
         self.dir_gallery = os.path.join(self.apath, 'cropped/gallery')
         self.dir_mask = os.path.join(self.apath, 'cropped/mask_hair_ele_face')
 
@@ -152,7 +150,7 @@ class MultiPIE(data.Dataset):
         if self.train:
             return len(self.images_hr) * self.repeat
         else:
-            return 10# len(self.images_hr)
+            return len(self.images_hr)
 
     def _get_index(self, idx):
         if self.train:

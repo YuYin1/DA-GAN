@@ -9,10 +9,6 @@ import torch
 import torch.nn.utils as utils
 from tqdm import tqdm
 
-# from light_cnn import LightCNN_9Layers, LightCNN_29Layers, LightCNN_29Layers_v2
-from model.light_cnn import LightCNN_9Layers, LightCNN_29Layers, LightCNN_29Layers_v2
-from model.common import MeanShift
-
 class Trainer():
     def __init__(self, args, loader, my_model, my_loss, ckp):
         self.args = args

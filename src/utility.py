@@ -136,36 +136,16 @@ class checkpoint():
             label = 'SR on {}'.format(d)
             fig = plt.figure()
             plt.title(label)
-            for idx_scale, scale in enumerate([self.args.scale[0]]):
-                plt.plot(
-                    axis,
-                    self.log[:, idx_data, idx_scale].numpy(),
-                    label='Scale {}'.format(scale)
-                )
+            plt.plot(
+                axis,
+                self.log[:, idx_data, 0].numpy(),
+                label='PSNR'
+            )
             plt.legend()
             plt.xlabel('Epochs')
             plt.ylabel('PSNR')
             plt.grid(True)
             plt.savefig(self.get_path('test_psnr_{}.pdf'.format(d)))
-            plt.close(fig)
-
-    def plot_nme(self, epoch):
-        axis = np.linspace(1, epoch, epoch)
-        for idx_data, d in enumerate(self.args.data_test):
-            label = 'Face Alignment on {}'.format(d)
-            fig = plt.figure()
-            plt.title(label)
-            for idx_scale, scale in enumerate(self.args.scale):
-                plt.plot(
-                    axis,
-                    self.log[:, idx_data, idx_scale].numpy(),
-                    label='Scale {}'.format(scale)
-                )
-            plt.legend()
-            plt.xlabel('Epochs')
-            plt.ylabel('NME')
-            plt.grid(True)
-            plt.savefig(self.get_path('test_nme_{}.pdf'.format(d)))
             plt.close(fig)
 
     def begin_background(self):
