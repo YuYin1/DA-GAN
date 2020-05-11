@@ -17,6 +17,8 @@ We provide training and testing code for [MultiPIE](http://www.cs.cmu.edu/afs/cs
 
 As for the face parser model, we use [face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch). 3 segments (i.e., hair, keypoints, and face) are generated and saved in the folder of `mask_hair_ele_face`.
 
+The original CAS-PEAL-R1 dataset could be found at: [CAS-PEAL-R1](http://www.jdl.ac.cn/peal/). The cropped one could be downloaded from [here](https://drive.google.com/drive/folders/1OLTGh15CuhyRXA0nOXVnKKjbYAg9UOLE?usp=sharing).
+
 ## Train
 Change data directory in option.py.
 For training, run 
