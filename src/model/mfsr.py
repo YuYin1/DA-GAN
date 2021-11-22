@@ -213,8 +213,8 @@ class MFSR(nn.Module):
 
     def mc(self, tensor): 
         # mirror and then concat
-        inv_idx = torch.arange(tensor.size(0)-1, -1, -1).long().cuda()
-        inv_tensor = tensor.index_select(0, inv_idx)
-        inv_tensor = tensor[inv_idx]
+        inv_idx = torch.arange(tensor.size(3)-1, -1, -1).long().cuda()
+        inv_tensor = tensor.index_select(3, inv_idx)
+
         return torch.cat([tensor, inv_tensor], 1)
 
